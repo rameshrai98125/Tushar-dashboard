@@ -9,7 +9,7 @@
     <!-- ALPINE JS -->
     <script src="assets/js/alpine.js" defer></script>
 
-    <title>Better Code</title>
+    <title>Mangament</title>
 </head>
 <body class="antialiased bg-gray-100">
     <div class="flex relative" x-data="{navOpen: false}">
@@ -19,9 +19,9 @@
                 <div class="p-4">
                     <!-- LOGO -->
                     <a  class="flex items-center text-white space-x-4" href="">
-                        <svg class="w-7 h-7 bg-red-600 rounded-lg p-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        <span class="text-2xl font-bold">Better Code</span>
-                    </a>
+                    <h1 class="text-2xl">Dashboard</h1>
+                </a>
+                <p class="text-white">Welcome, Admin!</p>
 
                     <!-- NAV LINKS -->
                     <div class="py-4 text-gray-400 space-y-1">
@@ -30,15 +30,32 @@
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                             <span>Dashboard</span>
                         </a>
-                        <a id="class" href="" class="block py-2.5 px-4 flex items-center space-x-2 bg-purple-800  hover:bg-purple-600 text-white  hover:text-white rounded">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                            <span>class</span>
-                        </a>
-                        <a href="#" class="block py-2.5 px-4 flex items-center space-x-2 bg-purple-800  hover:bg-purple-600 text-white  hover:text-white rounded">
+                          <!-- DROPDOWN LINK -->
+                          <div id="class"  class="block" x-data="{open: false}">
+                            <div @click="open = !open" class="flex items-center justify-between text-white bg-purple-800 hover:bg-purple-600  hover:text-white cursor-pointer py-2.5 px-4 rounded">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                                    <span>Class</span>
+                                </div>
+                                <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+                                <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>    
+                            </div>
+                            <div x-show="open" class="text-sm border-l-2 border-gray-800 mx-6 my-2.5 px-2.5 flex flex-col gap-y-1">
+                                <a id="addClass" href="#" class="block py-2 px-4 hover:bg-purple-600 hover:text-white rounded">
+                                    Add Class
+                                </a>
+                                <a id="addList" href="#" class="block py-2 px-4 hover:bg-purple-600 hover:text-white rounded">
+                                    Class List
+                                </a>
+                            </div>
+                        </div>
+                       
+
+                        <a id="studentSection" href="#" class="block py-2.5 px-4 flex items-center space-x-2 bg-purple-800  hover:bg-purple-600 text-white  hover:text-white rounded">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                             <span>Student section</span>
                         </a>
-                        <a href="#" class="block py-2.5 px-4 flex items-center space-x-2 bg-purple-800  hover:bg-purple-600 text-white  hover:text-white rounded">
+                        <a id="teacherSection" href="#" class="block py-2.5 px-4 flex items-center space-x-2 bg-purple-800  hover:bg-purple-600 text-white  hover:text-white rounded">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                             <span>Teacher section</span>
                         </a>
@@ -54,18 +71,6 @@
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                             <span>Daily Attendance
                             </span>
-                        </a>
-                        <a href="#" class="block py-2.5 px-4 flex items-center space-x-2 bg-purple-800  hover:bg-purple-600 text-white hover:text-white rounded">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                            <span>Settings</span>
-                        </a>
-                        <a href="#" class="block py-2.5 px-4 flex items-center space-x-2 bg-purple-800  hover:bg-purple-600 text-white  hover:text-white rounded">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                            <span>Account</span>
-                        </a>
-                        <a href="#" class="block py-2.5 px-4 flex items-center space-x-2 bg-purple-800  hover:bg-purple-600 text-white   hover:text-white rounded">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                            <span>Message</span>
                         </a>
                     </div>
                 </div>
@@ -88,19 +93,23 @@
         </nav>
         
         <!-- END OF NAV -->
-
+       
         <!-- PAGE CONTENT -->
-        <main id="content" class="flex-1 h-screen overflow-y-scroll overflow-x-hidden">
-            <div class="md:hidden justify-between items-center bg-black text-white flex">
-                <h1 class="text-2xl font-bold px-4">Better Code</h1>
+        <main id="content" class="flex-1 relative -z-0  h-screen overflow-y-scroll overflow-x-hidden">
+           
+  <!-- dashboard  -->
+
+
+
+            <!-- END OF PAGE CONTENT -->
+            <div class="md:hidden z-50 relative top-0  left-0 justify-between items-center bg-red-500 text-white flex">
+                <h1 class="z-10" class="text-2xl font-bold px-4">Better Code</h1>
                 <button @click="navOpen = !navOpen" class="btn p-4 focus:outline-none hover:bg-gray-800">
                     <svg class="w-6 h-6 fill-current" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
-
-            <!-- END OF PAGE CONTENT -->
         </main>
     </div>
-    <script src="./assets/js/script.js"></script>
+    <script type="module" src="./assets/js/script.js"></script>
 </body>
 </html>
