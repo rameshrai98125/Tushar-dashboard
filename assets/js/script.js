@@ -1,10 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
   const Dashboard = document.getElementById("Dashboard");
   const content = document.getElementById("content");
-  const addList = document.getElementById("addList");
+  const ClassList = document.getElementById("addList");
   const addClass = document.getElementById("addClass");
-  const studentSection = document.getElementById("studentSection");
-  const teacherSection = document.getElementById("teacherSection");
+  const StudentList = document.getElementById("StudentList");
+  const addStudent = document.getElementById("addStudent");
+  const addTeacher = document.getElementById("addTeacher");
+  const teacherList = document.getElementById("teacherList");
+  const addSubject = document.getElementById("addSubject");
+  const SubjectList = document.getElementById("SubjectList");
+  const RoutineList = document.getElementById("RoutineList");
+  const AddRoutine = document.getElementById("addRoutine");
+
   const user = [
     {
       class: "10A",
@@ -449,8 +456,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- END OF PAGE CONTENT -->
     `;
   });
-
-  addList.addEventListener("click", function (event) {
+  //  class
+  ClassList.addEventListener("click", function (event) {
     event.preventDefault();
     // Dummy Data
     const user = [
@@ -673,7 +680,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 
-  studentSection.addEventListener("click", function (event) {
+  // student section
+  StudentList.addEventListener("click", function (event) {
     event.preventDefault();
     // Dummy Data
     const user = [
@@ -784,63 +792,148 @@ document.addEventListener("DOMContentLoaded", function () {
     let tableRows = "";
     user.forEach((student) => {
       tableRows += `
-                <tr class="border-b border-gray-200 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-left whitespace-nowrap">${student.class}</td>
-                    <td class="py-3 px-6 text-left">
-                        <div class="flex items-center">
-                            <div class="mr-2">
-                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/${student.roll_no}.jpg" alt="${student.name}"/>
-                            </div>
-                            <span>${student.name}</span>
-                        </div>
-                    </td>
-                    <td class="py-3 px-6 text-center">${student.roll_no}</td>
-                    <td class="py-3 px-6 text-center">Math: ${student.marks.math}, Science: ${student.marks.science}, English: ${student.marks.english}</td>
-                    <td class="py-3 px-6 text-center">
-                        <div class="flex item-center justify-center">
-                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
-                            </div>
-                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                </svg>
-                            </div>
-                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            `;
+              <tr class="border-b border-gray-200 hover:bg-gray-100">
+                  <td class="py-3 px-6 text-left whitespace-nowrap">${student.class}</td>
+                  <td class="py-3 px-6 text-left">
+                      <div class="flex items-center">
+                          <div class="mr-2">
+                              <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/${student.roll_no}.jpg" alt="${student.name}"/>
+                          </div>
+                          <span>${student.name}</span>
+                      </div>
+                  </td>
+                  <td class="py-3 px-6 text-center">${student.roll_no}</td>
+                  <td class="py-3 px-6 text-center">Math: ${student.marks.math}, Science: ${student.marks.science}, English: ${student.marks.english}</td>
+                  <td class="py-3 px-6 text-center">
+                      <div class="flex item-center justify-center">
+                          <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                          </div>
+                          <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                              </svg>
+                          </div>
+                          <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              </svg>
+                          </div>
+                      </div>
+                  </td>
+              </tr>
+          `;
     });
 
-    content.innerHTML = `<!-- TABLE -->
-                  <div class="bg-white shadow rounded-sm my-2.5 overflow-x-auto">
-                      <table class="min-w-max w-full table-auto">
-                          <thead>
-                              <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                                  <th class="py-3 px-6 text-left">Class</th>
-                                  <th class="py-3 px-6 text-left">Name</th>
-                                  <th class="py-3 px-6 text-center">Roll No.</th>
-                                  <th class="py-3 px-6 text-center">Marks</th>
-                                  <th class="py-3 px-6 text-center">Actions</th>
-                              </tr>
-                          </thead>
-                            <tbody class="text-gray-600 text-sm">
-                          ${tableRows}
-                      </tbody>
-                      </table>
-                  </div>
-                  <!-- END OF TABLE -->`;
+    content.innerHTML = `
+                <div class="bg-white shadow rounded-sm my-2.5 overflow-x-auto">
+                    <table class="min-w-max w-full table-auto">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 text-left">Class</th>
+                                <th class="py-3 px-6 text-left">Name</th>
+                                <th class="py-3 px-6 text-center">Roll No.</th>
+                                <th class="py-3 px-6 text-center">Marks</th>
+                                <th class="py-3 px-6 text-center">Actions</th>
+                            </tr>
+                        </thead>
+                          <tbody class="text-gray-600 text-sm">
+                        ${tableRows}
+                    </tbody>
+                    </table>
+                </div>
+                `;
   });
 
-  teacherSection.addEventListener("click", function (event) {
+  addStudent.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    content.innerHTML = `  <div class="w-full h-screen flex justify-center items-center">
+      <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Add Student</h2>
+        <form id="addStudentForm" class="space-y-4">
+          <div>
+            <label
+              for="studentName"
+              class="block text-sm font-medium text-gray-700"
+              >Student Name</label
+            >
+            <input
+              type="text"
+              id="studentName"
+              name="studentName"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label
+              for="studentClass"
+              class="block text-sm font-medium text-gray-700"
+              >Class</label
+            >
+            <input
+              type="text"
+              id="studentClass"
+              name="studentClass"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label for="rollNo" class="block text-sm font-medium text-gray-700"
+              >Roll No</label
+            >
+            <input
+              type="text"
+              id="rollNo"
+              name="rollNo"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label for="marks" class="block text-sm font-medium text-gray-700"
+              >Marks</label
+            >
+            <input
+              type="text"
+              id="marks"
+              name="marks"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Add Student
+          </button>
+        </form>
+      </div>
+    </div>`;
+
+    document
+      .getElementById("addStudentForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+        const studentName = document.getElementById("studentName").value;
+        const studentClass = document.getElementById("studentClass").value;
+        const rollNo = document.getElementById("rollNo").value;
+        const marks = document.getElementById("marks").value;
+
+        alert(
+          `Student Name: ${studentName}\nClass: ${studentClass}\nRoll No: ${rollNo}\nMarks: ${marks}`
+        );
+      });
+  });
+  // teacher section
+
+  teacherList.addEventListener("click", function (event) {
     event.preventDefault();
     // Dummy Data
     const user = [
@@ -1005,6 +1098,562 @@ document.addEventListener("DOMContentLoaded", function () {
                       </table>
                   </div>
                   <!-- END OF TABLE -->`;
+  });
+
+  addTeacher.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    content.innerHTML = `<div class="w-full h-screen flex justify-center items-center">
+      <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Add Teacher</h2>
+        <form id="addTeacherForm" class="space-y-4">
+          <div>
+            <label
+              for="teacherName"
+              class="block text-sm font-medium text-gray-700"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="teacherName"
+              name="teacherName"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label
+              for="contactNo"
+              class="block text-sm font-medium text-gray-700"
+              >Contact No.</label
+            >
+            <input
+              type="text"
+              id="contactNo"
+              name="contactNo"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label
+              for="subjects"
+              class="block text-sm font-medium text-gray-700"
+              >Subjects</label
+            >
+            <input
+              type="text"
+              id="subjects"
+              name="subjects"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Add Teacher
+          </button>
+        </form>
+      </div>
+    </div>`;
+
+    document
+      .getElementById("addTeacherForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+        const teacherName = document.getElementById("teacherName").value;
+        const contactNo = document.getElementById("contactNo").value;
+        const subjects = document.getElementById("subjects").value;
+
+        alert(
+          `Name: ${teacherName}\nContact No.: ${contactNo}\nSubjects: ${subjects}`
+        );
+      });
+  });
+
+  // Subject section
+
+  SubjectList.addEventListener("click", function (event) {
+    event.preventDefault();
+    // Dummy Data
+    const user = [
+      {
+        class: "10A",
+        name: "John Doe",
+        roll_no: 1,
+        marks: {
+          math: 85,
+          science: 90,
+          english: 88,
+        },
+      },
+      {
+        class: "10A",
+        name: "Jane Smith",
+        roll_no: 2,
+        marks: {
+          math: 78,
+          science: 82,
+          english: 91,
+        },
+      },
+      {
+        class: "10A",
+        name: "Mike Johnson",
+        roll_no: 3,
+        marks: {
+          math: 92,
+          science: 89,
+          english: 84,
+        },
+      },
+      {
+        class: "10A",
+        name: "Emily Davis",
+        roll_no: 4,
+        marks: {
+          math: 88,
+          science: 94,
+          english: 90,
+        },
+      },
+      {
+        class: "10A",
+        name: "Chris Lee",
+        roll_no: 5,
+        marks: {
+          math: 76,
+          science: 85,
+          english: 80,
+        },
+      },
+      {
+        class: "10A",
+        name: "Anna Kim",
+        roll_no: 6,
+        marks: {
+          math: 90,
+          science: 92,
+          english: 95,
+        },
+      },
+      {
+        class: "10A",
+        name: "David Brown",
+        roll_no: 7,
+        marks: {
+          math: 84,
+          science: 88,
+          english: 87,
+        },
+      },
+      {
+        class: "10A",
+        name: "Sophia Wilson",
+        roll_no: 8,
+        marks: {
+          math: 89,
+          science: 91,
+          english: 92,
+        },
+      },
+      {
+        class: "10A",
+        name: "James Martinez",
+        roll_no: 9,
+        marks: {
+          math: 80,
+          science: 86,
+          english: 85,
+        },
+      },
+      {
+        class: "10A",
+        name: "Olivia Anderson",
+        roll_no: 10,
+        marks: {
+          math: 95,
+          science: 93,
+          english: 94,
+        },
+      },
+    ];
+
+    // End Dummy Data
+
+    let tableRows = "";
+    user.forEach((student) => {
+      tableRows += `
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-6 text-left whitespace-nowrap">${student.class}</td>
+                    <td class="py-3 px-6 text-left">
+                        <div class="flex items-center">
+                            <div class="mr-2">
+                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/${student.roll_no}.jpg" alt="${student.name}"/>
+                            </div>
+                            <span>${student.name}</span>
+                        </div>
+                    </td>
+                    <td class="py-3 px-6 text-center">${student.roll_no}</td>
+                    <td class="py-3 px-6 text-center">Math: ${student.marks.math}, Science: ${student.marks.science}, English: ${student.marks.english}</td>
+                    <td class="py-3 px-6 text-center">
+                        <div class="flex item-center justify-center">
+                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </div>
+                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                </svg>
+                            </div>
+                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            `;
+    });
+
+    content.innerHTML = `<!-- TABLE -->
+                  <div class="bg-white shadow rounded-sm my-2.5 overflow-x-auto">
+                      <table class="min-w-max w-full table-auto">
+                          <thead>
+                              <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                  <th class="py-3 px-6 text-left">Class</th>
+                                  <th class="py-3 px-6 text-left">Teacher Name</th>
+                                  <th class="py-3 px-6 text-center">Roll No.</th>
+                                  <th class="py-3 px-6 text-center">Marks</th>
+                                  <th class="py-3 px-6 text-center">Actions</th>
+                              </tr>
+                          </thead>
+                            <tbody class="text-gray-600 text-sm">
+                          ${tableRows}
+                      </tbody>
+                      </table>
+                  </div>
+                  <!-- END OF TABLE -->`;
+  });
+
+  addSubject.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    content.innerHTML = `<div class="w-full h-screen flex justify-center items-center">
+      <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Add Teacher</h2>
+        <form id="addTeacherForm" class="space-y-4">
+          <div>
+            <label
+              for="teacherName"
+              class="block text-sm font-medium text-gray-700"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="teacherName"
+              name="teacherName"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label
+              for="contactNo"
+              class="block text-sm font-medium text-gray-700"
+              >Contact No.</label
+            >
+            <input
+              type="text"
+              id="contactNo"
+              name="contactNo"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label
+              for="subjects"
+              class="block text-sm font-medium text-gray-700"
+              >Subjects</label
+            >
+            <input
+              type="text"
+              id="subjects"
+              name="subjects"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Add Teacher
+          </button>
+        </form>
+      </div>
+    </div>`;
+
+    document
+      .getElementById("addTeacherForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+        const teacherName = document.getElementById("teacherName").value;
+        const contactNo = document.getElementById("contactNo").value;
+        const subjects = document.getElementById("subjects").value;
+
+        alert(
+          `Name: ${teacherName}\nContact No.: ${contactNo}\nSubjects: ${subjects}`
+        );
+      });
+  });
+  // Routine section
+
+  RoutineList.addEventListener("click", function (event) {
+    event.preventDefault();
+    // Dummy Data
+    const user = [
+      {
+        class: "10A",
+        name: "John Doe",
+        roll_no: 1,
+        marks: {
+          math: 85,
+          science: 90,
+          english: 88,
+        },
+      },
+      {
+        class: "10A",
+        name: "Jane Smith",
+        roll_no: 2,
+        marks: {
+          math: 78,
+          science: 82,
+          english: 91,
+        },
+      },
+      {
+        class: "10A",
+        name: "Mike Johnson",
+        roll_no: 3,
+        marks: {
+          math: 92,
+          science: 89,
+          english: 84,
+        },
+      },
+      {
+        class: "10A",
+        name: "Emily Davis",
+        roll_no: 4,
+        marks: {
+          math: 88,
+          science: 94,
+          english: 90,
+        },
+      },
+      {
+        class: "10A",
+        name: "Chris Lee",
+        roll_no: 5,
+        marks: {
+          math: 76,
+          science: 85,
+          english: 80,
+        },
+      },
+      {
+        class: "10A",
+        name: "Anna Kim",
+        roll_no: 6,
+        marks: {
+          math: 90,
+          science: 92,
+          english: 95,
+        },
+      },
+      {
+        class: "10A",
+        name: "David Brown",
+        roll_no: 7,
+        marks: {
+          math: 84,
+          science: 88,
+          english: 87,
+        },
+      },
+      {
+        class: "10A",
+        name: "Sophia Wilson",
+        roll_no: 8,
+        marks: {
+          math: 89,
+          science: 91,
+          english: 92,
+        },
+      },
+      {
+        class: "10A",
+        name: "James Martinez",
+        roll_no: 9,
+        marks: {
+          math: 80,
+          science: 86,
+          english: 85,
+        },
+      },
+      {
+        class: "10A",
+        name: "Olivia Anderson",
+        roll_no: 10,
+        marks: {
+          math: 95,
+          science: 93,
+          english: 94,
+        },
+      },
+    ];
+
+    // End Dummy Data
+
+    let tableRows = "";
+    user.forEach((student) => {
+      tableRows += `
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-6 text-left whitespace-nowrap">${student.class}</td>
+                    <td class="py-3 px-6 text-left">
+                        <div class="flex items-center">
+                            <div class="mr-2">
+                                <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/${student.roll_no}.jpg" alt="${student.name}"/>
+                            </div>
+                            <span>${student.name}</span>
+                        </div>
+                    </td>
+                    <td class="py-3 px-6 text-center">${student.roll_no}</td>
+                    <td class="py-3 px-6 text-center">Math: ${student.marks.math}, Science: ${student.marks.science}, English: ${student.marks.english}</td>
+                    <td class="py-3 px-6 text-center">
+                        <div class="flex item-center justify-center">
+                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </div>
+                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                </svg>
+                            </div>
+                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            `;
+    });
+
+    content.innerHTML = `<!-- TABLE -->
+                  <div class="bg-white shadow rounded-sm my-2.5 overflow-x-auto">
+                      <table class="min-w-max w-full table-auto">
+                          <thead>
+                              <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                  <th class="py-3 px-6 text-left">Class</th>
+                                  <th class="py-3 px-6 text-left">Teacher Name</th>
+                                  <th class="py-3 px-6 text-center">Roll No.</th>
+                                  <th class="py-3 px-6 text-center">Marks</th>
+                                  <th class="py-3 px-6 text-center">Actions</th>
+                              </tr>
+                          </thead>
+                            <tbody class="text-gray-600 text-sm">
+                          ${tableRows}
+                      </tbody>
+                      </table>
+                  </div>
+                  <!-- END OF TABLE -->`;
+  });
+
+  AddRoutine.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    content.innerHTML = `<div class="w-full h-screen flex justify-center items-center">
+      <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Add Teacher</h2>
+        <form id="addTeacherForm" class="space-y-4">
+          <div>
+            <label
+              for="teacherName"
+              class="block text-sm font-medium text-gray-700"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="teacherName"
+              name="teacherName"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label
+              for="contactNo"
+              class="block text-sm font-medium text-gray-700"
+              >Contact No.</label
+            >
+            <input
+              type="text"
+              id="contactNo"
+              name="contactNo"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label
+              for="subjects"
+              class="block text-sm font-medium text-gray-700"
+              >Subjects</label
+            >
+            <input
+              type="text"
+              id="subjects"
+              name="subjects"
+              required
+              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Add Teacher
+          </button>
+        </form>
+      </div>
+    </div>`;
+
+    document
+      .getElementById("addTeacherForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+        const teacherName = document.getElementById("teacherName").value;
+        const contactNo = document.getElementById("contactNo").value;
+        const subjects = document.getElementById("subjects").value;
+
+        alert(
+          `Name: ${teacherName}\nContact No.: ${contactNo}\nSubjects: ${subjects}`
+        );
+      });
   });
 });
 
